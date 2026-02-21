@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="台大碩士生，網頁程式設計，研究資料處理，AI，R12126022">
+  <meta name="keywords" content="台大碩士生，網頁程式設計，研究資料處理，AI，R12126022">
+  <title>Zhang Kun Jie (Alvin)</title>
+  <link rel="shortcut icon" href="./Emblem72.gif" type="image/x-icon">
+  <style>
+    :root {
+      --menu-height: 0px; /* JS 動態設定的手機選單高度 */
+    }
+
+    /* ===== 全域設定 ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      line-height: 1.6;
+      padding-top: 70px; /* 桌面導覽列高度 */
+    }
+
+    a {
+      color: #0056b3;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== 導覽列（固定頂端） ===== */
+    nav {
+      background-color: #003d80;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-title {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+    }
+
+    .nav-links a {
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #cce3ff;
+    }
+
+    /* ===== 漢堡按鈕 ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* ===== 內容區 ===== */
+    .section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #0056b3;
+      border-bottom: 3px solid #0056b3;
+      display: inline-block;
+      margin-bottom: 20px;
+      padding-bottom: 5px;
+    }
+
+    .home-content {
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 20px;
+      border: 3px solid #0056b3;
+    }
+
+    .btn {
+      background-color: #0056b3;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      background-color: #004494;
+    }
+
+    /* ===== Contact 區塊置中 ===== */
+    #contact {
+      text-align: center;
+    }
+
+    #contact h2 {
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    #contact p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    #contact a {
+      color: #0056b3;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background-color: #003d80;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    /* ===== 響應式設計（手機版） ===== */
+    @media (max-width: 768px) {
+      body {
+        padding-top: calc(55px + var(--menu-height)); /* 導覽列 + 選單高度 */
+      }
+
+      nav {
+        flex-direction: row;
+        align-items: center;
+        height: 55px;
+      }
+
+      .hamburger {
+        display: flex;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #003d80;
+        position: fixed;
+        top: 55px;
+        left: 0;
+        text-align: center;
+        z-index: 999;
+        border-top: 1px solid rgba(255,255,255,0.2);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        padding: 15px 0;
+        border-top: 1px solid rgba(255,255,255,0.2);
+      }
+
+      .nav-title {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 導覽列 -->
+  <nav>
+    <div class="nav-title">Alvin Zhang Kun Jie (張焜傑)</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#career goals">Career goals</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- 首頁 -->
+  <section id="home" class="section home">
+    <div class="home-content">
+      <img src="image.jpeg" alt="Zhang Kun Jie" class="profile-pic">
+      <h2>Graduate Student in Library and Information Science</h2>
+      <p>Data Analysis & AI Enthusiast | National Taiwan University</p>
+      <a href="#experience" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <!-- 職涯目標 -->
+  <section id="career goals" class="section">
+    <h2>Career goals</h2>
+    <p><strong>Frontend Engineer</strong></p>
+    <ul>
+      <p>
+        Skills : 
+      </p>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+  </section>
+
+  <!-- 關於我 -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p><strong>Kun Jie Zhang</strong></p>
+    <p>
+      Bachelor of History @ NTU, currently pursuing a Master’s degree in Library and Information Science at National Taiwan University.<br>
+      GitHub: <a href="https://github.com/warriorthegreat" target="_blank">warriorthegreat</a>
+    </p>
+    <p>
+      I am a graduate student in LIS and an enthusiast of weight training and jogging. My career started as an intern history teacher at a public junior high school,
+      where I developed communication and project management skills. I currently work as a library assistant at NTU, handling collection relocation and writing social media content.
+    </p>
+    <p>
+      In graduate school, I actively learn programming and have completed an AI-driven sentiment analysis project on stock forums using Groq API with Llama 3 for semantic analysis.
+      Additionally, I served as a PM in a team project that built a furniture color-matching website offering personalized recommendations. I also study statistics to gain the necessary skills for quantitative research.
+    </p>
+  </section>
+
+  <!-- 教育 -->
+  <section id="education" class="section">
+    <h2>Education</h2>
+    <div class="edu-item">
+      <h3>National Taiwan University</h3>
+      <p><strong>Bachelor of History</strong> (Jul 2018 – Jun 2023) | GPA: 3.71</p>
+    </div>
+    <div class="edu-item">
+      <h3>National Taiwan University</h3>
+      <p><strong>Master’s in Library and Information Science</strong> (Sep 2024 – Present)</p>
+    </div>
+  </section>
+
+  <!-- 經歷 -->
+  <section id="experience" class="section">
+    <h2>Experience</h2>
+    <div class="exp-item">
+      <h3>Graduate Assistant — National Taiwan University</h3>
+      <p><em>Sep 2025 – Present</em></p>
+      <ul>
+        <li>Used Selenium to collect and clean research data, reducing duplication.</li>
+        <li>Planned and optimized data scraping workflow.</li>
+        <li>Performed other assigned duties.</li>
+      </ul>
+    </div>
+    <div class="exp-item">
+      <h3>Part-time Student Assistant — Department of Library & Information Science, NTU</h3>
+      <p><em>Mar 2025 – Aug 2025</em></p>
+      <ul>
+        <li>Processed and enhanced departmental documents using templates and generative AI tools.</li>
+        <li>Created library-themed name badges using DALL·E.</li>
+        <li>Optimized visual documents with XMind and created slides with Gamma.</li>
+        <li>Managed hardware lending and returns.</li>
+        <li>Facilitated cross-administrative communication.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 聯絡 -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>📧 <a href="mailto:r12126022@ntu.edu.tw">r12126022@ntu.edu.tw</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Kun Jie Zhang | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      var navLinks = document.getElementById('navLinks');
+      var root = document.documentElement;
+
+      if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        root.style.setProperty('--menu-height', '0px');
+      } else {
+        navLinks.classList.add('active');
+        var h = navLinks.scrollHeight;
+        root.style.setProperty('--menu-height', h + 'px');
+      }
+    }
+  </script>
+</body>
+</html>
