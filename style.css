@@ -1,0 +1,203 @@
+/* ===== 全域設定 ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
+  padding-top: 70px; /* ✅ 預留導覽列高度空間 */
+}
+
+
+a {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Header ===== */
+header {
+  background-color: #0056b3;
+  color: white;
+  text-align: center;
+  padding: 40px 10px;
+}
+
+header h1 {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+/* ===== 導覽列（左名右功能，固定於頂端） ===== */
+nav {
+  background-color: #003d80;
+  display: flex;
+  justify-content: space-between; /* 左邊名字，右邊導覽 */
+  align-items: center;
+  padding: 15px 25px;
+  position: fixed;       /* ✅ 固定位置 */
+  top: 0;                /* ✅ 貼齊頂部 */
+  left: 0;
+  width: 100%;           /* ✅ 佔滿整個寬度 */
+  z-index: 1000;         /* ✅ 保證在最上層 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* ✅ 加一點陰影效果 */
+}
+
+
+.nav-title {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+}
+
+.nav-links a {
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #cce3ff;
+}
+
+/* ===== 漢堡按鈕 ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* ===== 內容區 ===== */
+.section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+/* ===== Contact 區塊置中 ===== */
+#contact {
+  text-align: center;         /* ✅ 整段文字置中 */
+}
+
+#contact h2 {
+  display: inline-block;      /* ✅ 標題仍保持底線樣式 */
+  margin-bottom: 15px;
+}
+
+#contact p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#contact a {
+  color: #0056b3;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+
+h2 {
+  color: #0056b3;
+  border-bottom: 3px solid #0056b3;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+}
+
+.home-content {
+  text-align: center;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.btn {
+  background-color: #0056b3;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.btn:hover {
+  background-color: #004494;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #003d80;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* ===== 響應式設計（手機版） ===== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #003d80;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    text-align: center;
+    z-index: 99;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 15px 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .nav-title {
+    font-size: 18px;
+  }
+}

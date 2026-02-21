@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zhang Kun Jie (Alvin) | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-title">Alvin Zhang Kun Jie (張焜傑)</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">🚀 Finance Tools ▼</a>
+        <div class="dropdown-content">
+          <a href="exchange_calculator.html">💱 匯率優化計算機</a>
+          <a href="https://quant-portfolio-analyzer-ckj0911445818.streamlit.app/" target="_blank">📈 投資組合分析儀</a>
+        </div>
+      </li>
+      
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="section home">
+    <div class="home-content">
+      <img src="image.jpeg" alt="Zhang Kun Jie" class="profile-pic">
+      <h1>Alvin Zhang Kun Jie</h1>
+      <p class="subtitle">Data Analysis | FinTech | Library & Information Science</p>
+      
+      <div class="tool-showcase">
+        <a href="exchange_calculator.html" class="tool-card">
+          <span class="icon">💱</span>
+          <h3>匯率優化計算機</h3>
+          <p>找出最划算的換匯路徑，避開匯率陷阱。</p>
+        </a>
+        <a href="https://quant-portfolio-analyzer-ckj0911445818.streamlit.app/" target="_blank" class="tool-card">
+          <span class="icon">📈</span>
+          <h3>投資組合分析儀</h3>
+          <p>專業級量化回測工具，深度評估資產績效。</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+      目前就讀於國立臺灣大學圖書資訊學系研究所。我熱衷於數據分析與金融科技，致力於透過程式開發解決複雜的資訊處理問題。
+    </p>
+  </section>
+
+  <section id="education" class="section">
+    <h2>Education</h2>
+    <div class="edu-item">
+      <h3>National Taiwan University (NTU)</h3>
+      <p>Master of Library and Information Science | <em>Sep 2024 – Present</em></p>
+    </div>
+    <div class="edu-item">
+      <h3>National Taiwan University (NTU)</h3>
+      <p>Bachelor of History | <em>Sep 2018 – Jun 2023</em></p>
+    </div>
+  </section>
+
+  <<section id="internship" class="section">
+    <h2>Internship</h2>
+    <div class="exp-item">
+      <h3>Educational Intern — Fu-Ho Junior High School</h3>
+      <p><em>Aug 2023 – Jan 2024</em></p>
+      <ul>
+        <li><strong>系統化教學：</strong> 將碎片化、無脈絡的歷史知識轉化為系統性架構，提升學生對複雜資訊的吸收與理解能力。</li>
+        <li><strong>AI 行政優化：</strong> 導入 AI 工具輔助處理高重複性行政事務，大幅提升校務活動支援之效率。</li>
+        <li><strong>數據與媒體實作：</strong> 運用 Google Sheets 進行校務資訊視覺化；並負責校園宣導與圖書推廣影片之剪輯製作。</li>
+        <li><strong>活動主持：</strong> 主持新生引導活動與弱勢生期末手作工作坊，展現優秀的溝通與帶動特質。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <h2>Work Experience</h2>
+    <div class="exp-item">
+      <h3>Full-time Research Assistant — Dept. of LIS, NTU</h3>
+      <p><em>Aug 2025 – Present</em></p>
+      <ul>
+        <li><strong>數據自動化：</strong> 使用 Python Selenium 進行自動化數據爬取與清理，優化研究資料處理流程。</li>
+        <li><strong>流程優化：</strong> 規劃 Data Scraping 工作流程，確保大規模數據採集之準確性與穩定性。</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <h3>Part-time Student Assistant — Dept. of LIS, NTU</h3>
+      <p><em>Mar 2025 – Aug 2025</em></p>
+      <ul>
+        <li><strong>AI 輔助開發：</strong> 運用 Generative AI (DALL·E, ChatGPT) 處理部門文件與設計視覺化素材。</li>
+        <li><strong>資訊視覺化：</strong> 使用 XMind 梳理邏輯架構，並透過 Gamma 工具優化行政簡報之呈現效果。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>📧 Email: <a href="mailto:r12126022@ntu.edu.tw">r12126022@ntu.edu.tw</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Alvin Kun Jie Zhang | Built with Code & Data Science</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    // 點擊導覽列連結後自動縮回選單 (手機版優化)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
